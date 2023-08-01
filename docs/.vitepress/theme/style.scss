@@ -88,7 +88,11 @@
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand) !important;
 }
-
+.vp-doc{
+  p{
+    line-height: 1;
+  }
+}
 .vp-doc .vp-table {
   width: 100%;
   overflow-y: hidden;
@@ -102,6 +106,7 @@
   }
   th{
     background-color:  var(--el-bg-color);
+    color: var(--el-text-color);
   }
 
   & > table {

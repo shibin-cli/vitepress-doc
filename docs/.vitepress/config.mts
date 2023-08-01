@@ -10,17 +10,20 @@ import { ApiTableContainer } from './plugins/apiTable'
 export default defineConfig({
   title: "组件",
   description: "组件库文档",
+  base: "/doc",
   themeConfig: {
     nav: [
       { text: "Home", link: "/" },
-      { text: "组件", link: "/components/index.md" },
+      { text: "组件", link: "/components/start.md", activeMatch: "^/components/" },
     ],
 
     sidebar: [
       {
         text: "Components",
         items: [
+          { text: "Start", link: "/components/start" },
           { text: "SelectMultiple", link: "/components/select-multiple" },
+          { text: "Editor", link: "/components/editor" },
         ],
       },
     ],
