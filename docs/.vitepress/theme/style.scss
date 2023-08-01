@@ -11,13 +11,10 @@
   margin-bottom: 45px;
   th,td{
     border: none;
-  }
-  tr:nth-child(2n) {
     background-color: var(--el-bg-color);
   }
   th{
     color: var(--el-text-color);
-    background-color: var(--el-bg-color);
   }
 
   & > table {
