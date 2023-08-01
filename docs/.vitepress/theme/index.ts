@@ -8,6 +8,7 @@ import Editor from '../../../components/Editor.vue'
 import ClientOnly from '../../../components/ClientOnly.vue'
 import 'vitepress-theme-demoblock/dist/theme/styles/index.css'
 import 'element-plus/dist/index.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
 import './style.scss'
 export default {
   extends: Theme,
