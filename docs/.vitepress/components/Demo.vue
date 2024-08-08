@@ -1,59 +1,59 @@
 <script setup lang="ts">
-import { computed, getCurrentInstance, ref } from "vue";
-import Example from "./Example.vue";
-import SourceCode from "./SourceCode.vue";
-import { useClipboard, useToggle } from "@vueuse/core";
-import { CaretTop } from "@element-plus/icons-vue";
+import { computed, getCurrentInstance, ref } from 'vue'
+import Example from './Example.vue'
+import SourceCode from './SourceCode.vue'
+import { useClipboard, useToggle } from '@vueuse/core'
+import { CaretTop } from '@element-plus/icons-vue'
 const props = defineProps<{
-  demos: object;
-  source: string;
-  path: string;
-  rawSource: string;
-  description?: string;
-}>();
-const [sourceVisible, toggleSourceVisible] = useToggle();
+  demos: object
+  source: string
+  path: string
+  rawSource: string
+  description?: string
+}>()
+const [sourceVisible, toggleSourceVisible] = useToggle()
 
 const decoded = computed(() => {
-  return decodeURIComponent(props.source);
-});
+  return decodeURIComponent(props.source)
+})
 const formatPathDemos = computed(() => {
-  const demos = {};
+  const demos = {}
   Object.keys(props.demos).forEach((key) => {
-    demos[key.replace("./examples/", "").replace(".vue", "")] =
-      props.demos[key].default;
-  });
-  return demos;
-});
+    demos[key.replace('./examples/', '').replace('.vue', '')] =
+      props.demos[key].default
+  })
+  return demos
+})
 const decodedDescription = computed(() =>
-  decodeURIComponent(props.description!)
-);
+  decodeURIComponent(props.description!),
+)
 
-const vm = getCurrentInstance()!;
+const vm = getCurrentInstance()!
 const { copy, isSupported } = useClipboard({
   source: decodeURIComponent(props.rawSource),
   read: false,
-});
+})
 const copyCode = async () => {
-  const { $message } = vm.appContext.config.globalProperties;
+  const { $message } = vm.appContext.config.globalProperties
   if (!isSupported) {
-    $message.error("复制出错");
+    $message.error('复制出错')
   }
   try {
-    await copy();
-    $message.success("复制成功");
+    await copy()
+    $message.success('复制成功')
   } catch (e: any) {
-    $message.error(e.message);
+    $message.error(e.message)
   }
-};
-const sourceCodeRef = ref<HTMLButtonElement>();
+}
+const sourceCodeRef = ref<HTMLButtonElement>()
 
 const onSourceVisibleKeydown = (e: KeyboardEvent) => {
-  if (["Enter", "Space"].includes(e.code)) {
-    e.preventDefault();
-    toggleSourceVisible(false);
-    sourceCodeRef.value?.focus();
+  if (['Enter', 'Space'].includes(e.code)) {
+    e.preventDefault()
+    toggleSourceVisible(false)
+    sourceCodeRef.value?.focus()
   }
-};
+}
 </script>
 
 <template>
@@ -133,9 +133,6 @@ const onSourceVisibleKeydown = (e: KeyboardEvent) => {
   border: 1px solid var(--el-border-color);
   border-radius: var(--el-border-radius-base);
 }
-// p {
-//   font-size: 14px;
-// }
 .op-btns {
   padding: 0.5rem;
   display: flex;
@@ -164,7 +161,6 @@ const onSourceVisibleKeydown = (e: KeyboardEvent) => {
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   margin-top: -1px;
-  //   color: var(--el-text-color-secondary);
   cursor: pointer;
   position: sticky;
   left: 0;

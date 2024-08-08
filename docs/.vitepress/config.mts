@@ -2,33 +2,35 @@ import { defineConfig } from 'vitepress'
 import mdPlugin from './plugins/markdownPlugin'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'Element Plus Starter',
-  description: 'A VitePress Site',
+  title: 'Vitepress 搭建文档',
+  description: 'Vitepress 搭建组件文档',
   base: '/vitepress-doc/',
   markdown: {
     config: (md) => mdPlugin(md),
     theme: {
       light: 'github-light',
-      dark: 'github-dark'
-    }
+      dark: 'github-dark',
+    },
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: '首页', link: '/' },
+      { text: '开始', link: '/start' },
     ],
 
     sidebar: [
       {
         text: 'Examples',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
+          { text: '开始', link: '/start' },
+          { text: '查看效果', link: '/examples' },
+        ],
+      },
     ],
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/shibin-cli/vitepress-doc' }]
-  }
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/shibin-cli/vitepress-doc' },
+    ],
+  },
 })

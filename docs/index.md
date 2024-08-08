@@ -3,23 +3,18 @@
 layout: home
 
 hero:
-  name: "Element Plus Starter"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: 'Vitepress'
+  text: '使用 Vitepress 搭建文档'
+  tagline: 使用 Vitepress 搭建组件文档
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 开始搭建
+      link: /start
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 查看效果
+      link: /examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 支持展示组件样式
+    details: 支持展示组件样式，查看源代码，复制源代码
 ---
-
